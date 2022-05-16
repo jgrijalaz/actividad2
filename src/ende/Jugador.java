@@ -11,7 +11,7 @@ class Jugador
     private int exitos;      // número de partidas ganadas
     private int winTotal;
 
-    public String opcion_al_azar()
+    public String opcionAlAzar()
     {
         int c = (int)(Math.random()*3);
         switch (c)
@@ -21,6 +21,18 @@ class Jugador
             case 2 -> {return "tijera";}
             default -> {return "";}
         }
+    }
+
+    public Figura opcionAlAzarEnum()
+    {
+        int c = (int)(Math.random()*3);
+        switch (c)
+        {
+            case 0 -> {return Figura.PIEDRA;}
+            case 1 -> {return Figura.PAPEL;}
+            case 2 -> {return Figura.TIJERA;}
+        }
+        return Figura.PIEDRA; // porque hay que poner algo
     }
 
     public void exito()
