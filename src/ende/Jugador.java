@@ -1,13 +1,16 @@
 package ende;
+/**
+ * Escoge piedra, papel o tijera al azar
+ */
 
 /**
  * @author jgrijalaz
  */
-class Jugador{
+class Jugador
+{
+    private int exitos;      // número de partidas ganadas
+    private int winTotal;
 
-    /**
-     * Escoge piedra, papel o tijera al azar
-     */
     public String opcion_al_azar()
     {
         int c = (int)(Math.random()*3);
@@ -22,13 +25,12 @@ class Jugador{
 
     public void setÉxitos()
     {
-        éxitos++;
-    }
-    public int getÉxitos()
-    {
-        return(éxitos);
+        exitos++;
     }
 
-    int éxitos;      // número de partidas ganadas
-    int winTotal;
+    public int getExitos()
+    {
+        return exitos;
+    }
+
 }
