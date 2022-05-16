@@ -10,14 +10,17 @@ public class Juego
     {
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
-        boolean fin_de_juego = false;
-        Integer rondasjugadas = 0;    // Número de rondas jugadas
-        Integer exitos_jugador1 = jugador1.éxitos;
-        Integer exitos_jugador2 = jugador2.éxitos;
-        Integer empates = 0;
+        
+        int exitos_jugador1 = jugador1.getExitos();
+        int exitos_jugador2 = jugador2.getExitos();
+
         String opcion_JUGADOR1;
         String opcion_JUGADOR2;
-        
+
+        Integer rondasjugadas = 0;    // Número de rondas jugadas
+        Integer empates = 0;
+        boolean fin_de_juego = false;
+
         // Bucle de juego
         do
         {

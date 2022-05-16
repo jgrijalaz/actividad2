@@ -23,7 +23,7 @@ class Jugador
         }
     }
 
-    public void setÉxitos()
+    public void setExitos()
     {
         exitos++;
     }
