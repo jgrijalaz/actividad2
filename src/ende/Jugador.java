@@ -10,18 +10,16 @@ class Jugador{
      */
     public String opcion_al_azar()
     {
-        String opcion = "";
-
         int c = (int)(Math.random()*3);
         switch (c)
         {
-            case 0 -> opcion = ("piedra");
-            case 1 -> opcion = ("papel");
-            case 2 -> opcion = ("tijeras");
+            case 0 -> {return "piedra";}
+            case 1 -> {return "papel";}
+            case 2 -> {return "tijera";}
+            default -> {return "";}
         }
-
-        return opcion;
     }
+
     public void setÉxitos()
     {
         éxitos++;
