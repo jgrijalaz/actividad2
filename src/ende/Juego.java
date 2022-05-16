@@ -10,9 +10,6 @@ public class Juego
     private Jugador jugador1 = new Jugador();
     private Jugador jugador2 = new Jugador();
 
-    private String opcion_JUGADOR1;
-    private String opcion_JUGADOR2;
-
     private int rondasjugadas = 0;    // Número de rondas jugadas
     private int empates = 0;
     private boolean fin_de_juego = false;
@@ -20,18 +17,21 @@ public class Juego
     // Bucle de juego
     public void jugar()
     {
+        String opcion_JUGADOR1;
+        String opcion_JUGADOR2;
+
         do
         {
-            System.out.printf("***** Ronda: %d ********", rondasjugadas);
-            System.out.printf("Jugador 1 - Partidas ganadas: %d", jugador1.getExitos());
-            System.out.printf("Jugador 2 - Partidas ganadas: %d", jugador2.getExitos());
-            System.out.printf("Numero de empates: %d", empates);
-
-            opcion_JUGADOR1 = jugador2.opcionAlAzar();
+            opcion_JUGADOR1 = jugador1.opcionAlAzar();
             opcion_JUGADOR2 = jugador2.opcionAlAzar();
 
-            System.out.printf("Jugador 1: %-10s", opcion_JUGADOR1);
-            System.out.printf("Jugador 2: %-10s", opcion_JUGADOR2);
+            System.out.printf("\n***** Ronda: %d ********", rondasjugadas + 1);
+            System.out.printf("\nJugador 1 - Partidas ganadas: %d", jugador1.getExitos());
+            System.out.printf("\nJugador 2 - Partidas ganadas: %d", jugador2.getExitos());
+            System.out.printf("\nNumero de empates: %d", empates);
+
+            System.out.printf("\nJugador 1: %-10s", opcion_JUGADOR1);
+            System.out.printf("\nJugador 2: %-10s", opcion_JUGADOR2);
 
             switch (opcion_JUGADOR1)
             {
@@ -96,29 +96,44 @@ public class Juego
             if ((jugador1.getExitos() >= 3) || (jugador2.getExitos() >= 3))
             {
                 fin_de_juego = true;
-                System.out.println("FIN DEL JUEGO!!");
             }
 
         }
         while(!fin_de_juego);
+
+        System.out.println("\nFIN DEL JUEGO!!");
+
+        if(jugador1.getExitos() > jugador2.getExitos())
+        {
+            System.out.println("\nGanador: jugador1");
+        }
+        else
+        {
+            System.out.println("\nGanador: jugador2");
+        }
     }
 
     private void gana1()
     {
         jugador1.exito();
-        System.out.println("Gana jugador1");
+        System.out.println("\nGana jugador1");
     }
 
     private void gana2()
     {
-        jugador1.exito();
-        System.out.println("Gana jugador2");
+        jugador2.exito();
+        System.out.println("\nGana jugador2");
     }
 
     private void empate()
     {
         empates++;
-        System.out.println("Empate");
+        System.out.println("\nEmpate");
     }
 
+    public static void main(String[] args)
+    {
+        Juego miJuego = new Juego();
+        miJuego.jugar();
+    }
 }
